@@ -1,0 +1,42 @@
+name: Rebuild index
+
+# On merge to main, regenerate index.json and commit it. The app fetches that file and nothing
+# else, so this is what actually publishes an entry.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'entries/**'
+      - 'scripts/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - run: npm install
+
+      - name: Rebuild index.json
+        run: npm run build
+
+      - name: Commit if it changed
+        run: |
+          if git diff --quiet index.json; then
+            echo "index.json already up to date"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.json
+          git commit -m "Rebuild index.json"
+          git push

@@ -1,0 +1,41 @@
+name: Validate entries
+
+# Runs on every pull request. Checks the shape of each entry, that the repos it names exist,
+# and - for a pinned entry - that the release asset is there and hashes to what the entry
+# claims. What it cannot check is whether the code is safe; that is the review.
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - run: npm install
+
+      - name: Validate entries
+        run: npm run validate
+        env:
+          # Lifts the API rate limit from 60/hour to 1000, which matters once the catalogue
+          # is more than a handful of entries.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check index.json is up to date
+        # index.json is generated. If a PR hand-edits it, or build-index would produce
+        # something different, say so here rather than letting main drift from the entries.
+        run: |
+          npm run build
+          git diff --exit-code index.json || {
+            echo "::error::index.json does not match entries/. It is generated - do not edit it by hand."
+            exit 1
+          }

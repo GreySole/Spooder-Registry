@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/GreySole/Spooder-Registry/schema/entry.schema.json",
+  "title": "Spooder registry entry",
+  "description": "One installable thing: a module (a backend half, a WebUI half, or both) or a plugin.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "kind", "name", "summary", "author", "license", "spooder", "track"],
+  "properties": {
+    "id": {
+      "description": "Stable identifier. For a module this is the module name Spooder registers it under, so it must match the backend manifest's spooder_module.name.",
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "maxLength": 40
+    },
+    "kind": { "enum": ["module", "plugin"] },
+    "name": { "type": "string", "minLength": 1, "maxLength": 60 },
+    "summary": {
+      "description": "One line, shown on the card. Say what it does, not that it is a Spooder module.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "author": { "type": "string", "minLength": 1 },
+    "license": { "type": "string", "minLength": 1 },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+      "maxItems": 8
+    },
+    "icon": { "type": "string", "format": "uri" },
+    "homepage": { "type": "string", "format": "uri" },
+    "spooder": {
+      "description": "Which Spooder versions this runs on, as a semver range. Entries outside the host's version are shown but not installable.",
+      "type": "string",
+      "minLength": 1
+    },
+    "track": {
+      "description": "pinned - install exactly the version below, whose sha256 a reviewer checked. latest - follow the repo's newest release, which trades that check for not needing a registry PR per release.",
+      "enum": ["pinned", "latest"]
+    },
+    "server": { "$ref": "#/$defs/artifact" },
+    "webui": { "$ref": "#/$defs/artifact" },
+    "plugin": { "$ref": "#/$defs/artifact" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "kind": { "const": "module" } }, "required": ["kind"] },
+      "then": {
+        "anyOf": [{ "required": ["server"] }, { "required": ["webui"] }],
+        "not": { "required": ["plugin"] }
+      }
+    },
+    {
+      "if": { "properties": { "kind": { "const": "plugin" } }, "required": ["kind"] },
+      "then": {
+        "required": ["plugin"],
+        "not": { "anyOf": [{ "required": ["server"] }, { "required": ["webui"] }] }
+      }
+    },
+    {
+      "if": { "properties": { "track": { "const": "pinned" } }, "required": ["track"] },
+      "then": {
+        "properties": {
+          "server": { "required": ["sha256"] },
+          "webui": { "required": ["sha256"] },
+          "plugin": { "required": ["sha256"] }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repo"],
+      "properties": {
+        "repo": {
+          "description": "owner/name on github.com.",
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+$"
+        },
+        "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(-[0-9A-Za-z.-]+)?$" },
+        "asset": {
+          "description": "Release asset filename. Omitted for a 'latest' entry, which takes the release's first asset.",
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    }
+  }
+}

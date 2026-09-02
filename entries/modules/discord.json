@@ -1,0 +1,27 @@
+{
+  "id": "discord",
+  "kind": "module",
+  "name": "Discord",
+  "summary": "Post to channels, react to messages, and run voice from your events.",
+  "author": "GreySole",
+  "license": "GPL-3.0",
+  "tags": [
+    "community",
+    "chat",
+    "voice"
+  ],
+  "spooder": "^0.6.0",
+  "track": "pinned",
+  "server": {
+    "repo": "GreySole/Spooder-Discord-Module",
+    "version": "0.6.0",
+    "asset": "spooder-discord-module-v0.6.0.zip",
+    "sha256": "af2e9801be0db5cb51e976fa090791593bd1dbb2096c7b59557bb4f2d4a57967"
+  },
+  "webui": {
+    "repo": "GreySole/Spooder-WebUI-Discord-Module",
+    "version": "0.6.0",
+    "asset": "spooder-webui-discord-module-v0.6.0.zip",
+    "sha256": "43b3711462551f6f27a4aa93b37db8cafa475ed815e58b8cc6a5aae801d3be30"
+  }
+}

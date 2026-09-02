@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "discord",
+      "kind": "module",
+      "name": "Discord",
+      "summary": "Post to channels, react to messages, and run voice from your events.",
+      "author": "GreySole",
+      "license": "GPL-3.0",
+      "tags": [
+        "community",
+        "chat",
+        "voice"
+      ],
+      "spooder": "^0.6.0",
+      "track": "pinned",
+      "server": {
+        "repo": "GreySole/Spooder-Discord-Module",
+        "version": "0.6.0",
+        "asset": "spooder-discord-module-v0.6.0.zip",
+        "sha256": "af2e9801be0db5cb51e976fa090791593bd1dbb2096c7b59557bb4f2d4a57967"
+      },
+      "webui": {
+        "repo": "GreySole/Spooder-WebUI-Discord-Module",
+        "version": "0.6.0",
+        "asset": "spooder-webui-discord-module-v0.6.0.zip",
+        "sha256": "43b3711462551f6f27a4aa93b37db8cafa475ed815e58b8cc6a5aae801d3be30"
+      }
+    },
+    {
+      "id": "obs",
+      "kind": "module",
+      "name": "OBS",
+      "summary": "Switch scenes, control sources, and mix audio from a deck or an event.",
+      "author": "GreySole",
+      "license": "GPL-3.0",
+      "tags": [
+        "control",
+        "video",
+        "audio"
+      ],
+      "spooder": "^0.6.0",
+      "track": "pinned",
+      "server": {
+        "repo": "GreySole/Spooder-OBS-Module",
+        "version": "0.6.0",
+        "asset": "spooder-obs-module-v0.6.0.zip",
+        "sha256": "64088fbb77f2a2ce7d041e335fd7872466e62d691841e9528526df745ac6b216"
+      },
+      "webui": {
+        "repo": "GreySole/Spooder-WebUI-OBS-Module",
+        "version": "0.6.0",
+        "asset": "spooder-webui-obs-module-v0.6.0.zip",
+        "sha256": "a1a3bea282c295388d22c2d82984226727d8097b20c53186cbeb3c9c78014690"
+      }
+    },
+    {
+      "id": "twitch",
+      "kind": "module",
+      "name": "Twitch",
+      "summary": "Chat commands, EventSub triggers, and channel point redeems.",
+      "author": "GreySole",
+      "license": "GPL-3.0",
+      "tags": [
+        "stream",
+        "chat"
+      ],
+      "spooder": "^0.6.0",
+      "track": "pinned",
+      "server": {
+        "repo": "GreySole/Spooder-Twitch-Module",
+        "version": "0.6.0",
+        "asset": "spooder-twitch-module-v0.6.0.zip",
+        "sha256": "5b66079dc123290211c1a2fb62a18ced5472386b8ae24afd74c34fdf20fd0421"
+      },
+      "webui": {
+        "repo": "GreySole/Spooder-WebUI-Twitch-Module",
+        "version": "0.6.0",
+        "asset": "spooder-webui-twitch-module-v0.6.0.zip",
+        "sha256": "bf0cd788bde39424a320d812c6bcef8aafe24efb3b188743e8c6d8caf4fad085"
+      }
+    }
+  ]
+}
