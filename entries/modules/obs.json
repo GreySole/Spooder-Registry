@@ -11,17 +11,11 @@
     "audio"
   ],
   "spooder": "^0.6.0",
-  "track": "pinned",
+  "track": "latest",
   "server": {
-    "repo": "GreySole/Spooder-OBS-Module",
-    "version": "0.6.0",
-    "asset": "spooder-obs-module-v0.6.0.zip",
-    "sha256": "64088fbb77f2a2ce7d041e335fd7872466e62d691841e9528526df745ac6b216"
+    "repo": "GreySole/Spooder-OBS-Module"
   },
   "webui": {
-    "repo": "GreySole/Spooder-WebUI-OBS-Module",
-    "version": "0.6.0",
-    "asset": "spooder-webui-obs-module-v0.6.0.zip",
-    "sha256": "a1a3bea282c295388d22c2d82984226727d8097b20c53186cbeb3c9c78014690"
+    "repo": "GreySole/Spooder-WebUI-OBS-Module"
   }
 }
