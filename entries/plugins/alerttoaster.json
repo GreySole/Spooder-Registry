@@ -1,0 +1,23 @@
+{
+  "id": "alerttoaster",
+  "kind": "plugin",
+  "name": "Alert Toaster",
+  "summary": "Slide-in pop-up alerts for Twitch and Spooder events.",
+  "author": "GreySole",
+  "license": "GPL-3.0",
+  "tags": [
+    "stream",
+    "overlay",
+    "alerts"
+  ],
+  "icon": "https://raw.githubusercontent.com/GreySole/Spooder-AlertToaster/v0.6.0/icon.png",
+  "homepage": "https://github.com/GreySole/Spooder-AlertToaster",
+  "spooder": "^0.6.0",
+  "track": "pinned",
+  "plugin": {
+    "repo": "GreySole/Spooder-AlertToaster",
+    "version": "0.6.0",
+    "asset": "Spooder-AlertToaster-v0.6.0.zip",
+    "sha256": "07a61a79d19fa08aab6700ad4861cb2fa1b8cb2c9e35c5df9c076c99805c8cdd"
+  }
+}
