@@ -62,6 +62,26 @@
       "webui": {
         "repo": "GreySole/Spooder-WebUI-Twitch-Module"
       }
+    },
+    {
+      "id": "alerttoaster",
+      "kind": "plugin",
+      "name": "Alert Toaster",
+      "summary": "Slide-in pop-up alerts for Twitch and Spooder events.",
+      "author": "GreySole",
+      "license": "GPL-3.0",
+      "tags": [
+        "stream",
+        "overlay",
+        "alerts"
+      ],
+      "icon": "https://raw.githubusercontent.com/GreySole/Spooder-AlertToaster/v0.6.0/icon.png",
+      "homepage": "https://github.com/GreySole/Spooder-AlertToaster",
+      "spooder": "^0.6.0",
+      "track": "latest",
+      "plugin": {
+        "repo": "GreySole/Spooder-AlertToaster"
+      }
     }
   ]
 }
