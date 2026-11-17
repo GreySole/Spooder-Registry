@@ -13,11 +13,8 @@
   "icon": "https://raw.githubusercontent.com/GreySole/Spooder-AlertToaster/v0.6.0/icon.png",
   "homepage": "https://github.com/GreySole/Spooder-AlertToaster",
   "spooder": "^0.6.0",
-  "track": "pinned",
+  "track": "latest",
   "plugin": {
-    "repo": "GreySole/Spooder-AlertToaster",
-    "version": "0.6.0",
-    "asset": "Spooder-AlertToaster-v0.6.0.zip",
-    "sha256": "07a61a79d19fa08aab6700ad4861cb2fa1b8cb2c9e35c5df9c076c99805c8cdd"
+    "repo": "GreySole/Spooder-AlertToaster"
   }
 }
