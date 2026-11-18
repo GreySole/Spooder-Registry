@@ -1,5 +1,5 @@
 {
-  "id": "media_player",
+  "id": "greysole/media_player",
   "kind": "plugin",
   "name": "Media Player",
   "summary": "Play sounds, images, videos and Twitch clips on your overlay.",

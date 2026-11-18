@@ -131,6 +131,14 @@ async function checkArtifact(file, label, artifact, track) {
     if (f.file !== expected) {
       note(f.file, `should be named ${expected} to match its id and kind`);
     }
+    // The owner segment is the whole point of a namespaced id: it can only be claimed by the
+    // account that actually publishes the plugin, so nobody can register greysole/anything.
+    if (entry.kind === 'plugin') {
+      const repoOwner = entry.plugin.repo.split('/')[0].toLowerCase();
+      if (entry.id.split('/')[0] !== repoOwner) {
+        note(f.file, `id owner '${entry.id.split('/')[0]}' must match the owner of ${entry.plugin.repo}`);
+      }
+    }
     if (ids.has(entry.id)) {
       note(f.file, `duplicate id '${entry.id}', already used by ${ids.get(entry.id)}`);
     }

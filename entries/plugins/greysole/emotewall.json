@@ -1,5 +1,5 @@
 {
-  "id": "emotewall",
+  "id": "greysole/emotewall",
   "kind": "plugin",
   "name": "Emote Wall",
   "summary": "Floats the emotes from chat across your overlay. Supports animated emotes.",

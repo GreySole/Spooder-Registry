@@ -1,5 +1,5 @@
 {
-  "id": "alerttoaster",
+  "id": "greysole/alerttoaster",
   "kind": "plugin",
   "name": "Alert Toaster",
   "summary": "Slide-in pop-up alerts for Twitch and Spooder events.",

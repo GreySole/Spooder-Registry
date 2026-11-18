@@ -1,5 +1,5 @@
 {
-  "id": "chatbox",
+  "id": "greysole/chatbox",
   "kind": "plugin",
   "name": "Chatbox",
   "summary": "Chat overlay with badges, animated emotes, and styling options.",

@@ -8,10 +8,10 @@
   "required": ["id", "kind", "name", "summary", "author", "license", "spooder", "track"],
   "properties": {
     "id": {
-      "description": "Stable identifier. For a module this is the module name Spooder registers it under, so it must match the backend manifest's spooder_module.name.",
+      "description": "Stable identifier. A module: the module name Spooder registers it under, so it must match the backend manifest's spooder_module.name. A plugin: 'owner/name', like an npm scope - owner is the GitHub account that publishes it (must match plugin.repo's owner) and name is the plugin's own name, the folder it installs under. The owner part is what keeps two authors' 'chatbox' from colliding.",
       "type": "string",
-      "pattern": "^[a-z0-9][a-z0-9-]*$",
-      "maxLength": 40
+      "pattern": "^[a-z0-9][a-z0-9-]*(/[a-z0-9][a-z0-9_-]*)?$",
+      "maxLength": 80
     },
     "kind": { "enum": ["module", "plugin"] },
     "name": { "type": "string", "minLength": 1, "maxLength": 60 },
@@ -47,6 +47,7 @@
     {
       "if": { "properties": { "kind": { "const": "module" } }, "required": ["kind"] },
       "then": {
+        "properties": { "id": { "pattern": "^[a-z0-9][a-z0-9-]*$" } },
         "anyOf": [{ "required": ["server"] }, { "required": ["webui"] }],
         "not": { "required": ["plugin"] }
       }
@@ -54,6 +55,7 @@
     {
       "if": { "properties": { "kind": { "const": "plugin" } }, "required": ["kind"] },
       "then": {
+        "properties": { "id": { "pattern": "^[a-z0-9][a-z0-9-]*/[a-z0-9][a-z0-9_-]*$" } },
         "required": ["plugin"],
         "not": { "anyOf": [{ "required": ["server"] }, { "required": ["webui"] }] }
       }

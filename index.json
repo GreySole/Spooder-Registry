@@ -64,7 +64,7 @@
       }
     },
     {
-      "id": "alerttoaster",
+      "id": "greysole/alerttoaster",
       "kind": "plugin",
       "name": "Alert Toaster",
       "summary": "Slide-in pop-up alerts for Twitch and Spooder events.",
@@ -84,7 +84,7 @@
       }
     },
     {
-      "id": "chatbox",
+      "id": "greysole/chatbox",
       "kind": "plugin",
       "name": "Chatbox",
       "summary": "Chat overlay with badges, animated emotes, and styling options.",
@@ -104,7 +104,7 @@
       }
     },
     {
-      "id": "emotewall",
+      "id": "greysole/emotewall",
       "kind": "plugin",
       "name": "Emote Wall",
       "summary": "Floats the emotes from chat across your overlay. Supports animated emotes.",
@@ -124,7 +124,7 @@
       }
     },
     {
-      "id": "media_player",
+      "id": "greysole/media_player",
       "kind": "plugin",
       "name": "Media Player",
       "summary": "Play sounds, images, videos and Twitch clips on your overlay.",
