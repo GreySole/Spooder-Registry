@@ -1,0 +1,20 @@
+{
+  "id": "emotewall",
+  "kind": "plugin",
+  "name": "Emote Wall",
+  "summary": "Floats the emotes from chat across your overlay. Supports animated emotes.",
+  "author": "GreySole",
+  "license": "GPL-3.0",
+  "tags": [
+    "stream",
+    "overlay",
+    "chat"
+  ],
+  "icon": "https://raw.githubusercontent.com/GreySole/Spooder-EmoteWall/v0.6.0/icon.png",
+  "homepage": "https://github.com/GreySole/Spooder-EmoteWall",
+  "spooder": "^0.6.0",
+  "track": "latest",
+  "plugin": {
+    "repo": "GreySole/Spooder-EmoteWall"
+  }
+}
