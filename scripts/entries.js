@@ -5,22 +5,33 @@ const path = require('path');
 
 const ENTRIES_DIR = path.join(__dirname, '..', 'entries');
 
+// Entries may sit in subfolders - a plugin 'owner/name' lives at plugins/owner/name.json - so
+// this walks each kind folder rather than reading one level.
+function listJson(dir) {
+  const out = [];
+  for (const item of fs.readdirSync(dir).sort()) {
+    const full = path.join(dir, item);
+    if (fs.statSync(full).isDirectory()) out.push(...listJson(full));
+    else if (item.endsWith('.json')) out.push(full);
+  }
+  return out;
+}
+
 function readEntries() {
   const found = [];
   for (const kindDir of fs.readdirSync(ENTRIES_DIR).sort()) {
     const dir = path.join(ENTRIES_DIR, kindDir);
     if (!fs.statSync(dir).isDirectory()) continue;
-    for (const file of fs.readdirSync(dir).sort()) {
-      if (!file.endsWith('.json')) continue;
-      const filePath = path.join(dir, file);
+    for (const filePath of listJson(dir)) {
+      const file = path.relative(ENTRIES_DIR, filePath).split(path.sep).join('/');
       let entry;
       try {
         entry = JSON.parse(fs.readFileSync(filePath, 'utf8'));
       } catch (e) {
-        found.push({ file: path.relative(ENTRIES_DIR, filePath), parseError: e.message });
+        found.push({ file, parseError: e.message });
         continue;
       }
-      found.push({ file: path.relative(ENTRIES_DIR, filePath), dir: kindDir, entry });
+      found.push({ file, dir: kindDir, entry });
     }
   }
   return found;

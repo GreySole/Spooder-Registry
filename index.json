@@ -64,7 +64,7 @@
       }
     },
     {
-      "id": "alerttoaster",
+      "id": "greysole/alerttoaster",
       "kind": "plugin",
       "name": "Alert Toaster",
       "summary": "Slide-in pop-up alerts for Twitch and Spooder events.",
@@ -84,7 +84,7 @@
       }
     },
     {
-      "id": "chatbox",
+      "id": "greysole/chatbox",
       "kind": "plugin",
       "name": "Chatbox",
       "summary": "Chat overlay with badges, animated emotes, and styling options.",
@@ -101,6 +101,46 @@
       "track": "latest",
       "plugin": {
         "repo": "GreySole/Spooder-Chatbox"
+      }
+    },
+    {
+      "id": "greysole/emotewall",
+      "kind": "plugin",
+      "name": "Emote Wall",
+      "summary": "Floats the emotes from chat across your overlay. Supports animated emotes.",
+      "author": "GreySole",
+      "license": "GPL-3.0",
+      "tags": [
+        "stream",
+        "overlay",
+        "chat"
+      ],
+      "icon": "https://raw.githubusercontent.com/GreySole/Spooder-EmoteWall/v0.6.0/icon.png",
+      "homepage": "https://github.com/GreySole/Spooder-EmoteWall",
+      "spooder": "^0.6.0",
+      "track": "latest",
+      "plugin": {
+        "repo": "GreySole/Spooder-EmoteWall"
+      }
+    },
+    {
+      "id": "greysole/media_player",
+      "kind": "plugin",
+      "name": "Media Player",
+      "summary": "Play sounds, images, videos and Twitch clips on your overlay.",
+      "author": "GreySole",
+      "license": "GPL-3.0",
+      "tags": [
+        "stream",
+        "overlay",
+        "media"
+      ],
+      "icon": "https://raw.githubusercontent.com/GreySole/Spooder-MediaPlayer/v2.0.0/icon.png",
+      "homepage": "https://github.com/GreySole/Spooder-MediaPlayer",
+      "spooder": "^0.6.0",
+      "track": "latest",
+      "plugin": {
+        "repo": "GreySole/Spooder-MediaPlayer"
       }
     }
   ]

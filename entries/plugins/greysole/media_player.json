@@ -1,0 +1,20 @@
+{
+  "id": "greysole/media_player",
+  "kind": "plugin",
+  "name": "Media Player",
+  "summary": "Play sounds, images, videos and Twitch clips on your overlay.",
+  "author": "GreySole",
+  "license": "GPL-3.0",
+  "tags": [
+    "stream",
+    "overlay",
+    "media"
+  ],
+  "icon": "https://raw.githubusercontent.com/GreySole/Spooder-MediaPlayer/v2.0.0/icon.png",
+  "homepage": "https://github.com/GreySole/Spooder-MediaPlayer",
+  "spooder": "^0.6.0",
+  "track": "latest",
+  "plugin": {
+    "repo": "GreySole/Spooder-MediaPlayer"
+  }
+}

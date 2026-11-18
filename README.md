@@ -5,13 +5,13 @@ Spooder fetches [`index.json`](index.json) and shows what is in it on the Module
 
 ## Submitting
 
-Add one file under `entries/modules/` or `entries/plugins/`, named `<id>.json`, and open a pull
-request. One file per entry, so two submissions on the same day never conflict and a reviewer
+Add one file and open a pull request: `entries/modules/<id>.json` for a module, or
+`entries/plugins/<owner>/<name>.json` for a plugin. One file per entry, so two submissions on the same day never conflict and a reviewer
 sees exactly one entry in the diff.
 
 ```json
 {
-  "id": "my-thing",
+  "id": "you/my-thing",
   "kind": "plugin",
   "name": "My Thing",
   "summary": "One line describing what it does.",
@@ -28,6 +28,15 @@ sees exactly one entry in the diff.
   }
 }
 ```
+
+## Plugin ids
+
+A plugin's id is `owner/name`, like an npm scope. `owner` must be the GitHub account in
+`plugin.repo` (lowercase) - CI rejects anything else, so nobody can publish under another
+author's name. `name` is the plugin's own name, the folder it installs under (the `name` in its
+`package.json`), so two authors can each ship a `chatbox` and the registry still tells them apart.
+Spooder installs only one plugin per name: if one from a different repo is already there, the
+store says so rather than overwriting it.
 
 [`schema/entry.schema.json`](schema/entry.schema.json) is the full definition, and every field
 carries a description — point your editor at it and you get completion and inline docs.
