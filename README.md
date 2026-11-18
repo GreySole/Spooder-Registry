@@ -35,6 +35,10 @@ A plugin's id is `owner/name`, like an npm scope. `owner` must be the GitHub acc
 `plugin.repo` (lowercase) - CI rejects anything else, so nobody can publish under another
 author's name. `name` is the plugin's own name, the folder it installs under (the `name` in its
 `package.json`), so two authors can each ship a `chatbox` and the registry still tells them apart.
+If people already have the plugin installed under an older folder name, list it in
+`legacyNames` (`"legacyNames": ["Alert Toaster"]`). Spooder then treats that install as this
+entry and updates it in place, keeping its folder, settings and overlay layers.
+
 Spooder installs only one plugin per name: if one from a different repo is already there, the
 store says so rather than overwriting it.
 

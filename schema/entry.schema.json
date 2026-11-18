@@ -14,6 +14,12 @@
       "maxLength": 80
     },
     "kind": { "enum": ["module", "plugin"] },
+    "legacyNames": {
+      "description": "Plugins only. Folder names this plugin was installed under before it had this id, e.g. from a hand-installed zip. An installed plugin with one of these names is treated as this entry: it shows as installed and updates in place, keeping its folder, settings and overlay layers.",
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9 _.-]*$", "maxLength": 80 },
+      "maxItems": 8
+    },
     "name": { "type": "string", "minLength": 1, "maxLength": 60 },
     "summary": {
       "description": "One line, shown on the card. Say what it does, not that it is a Spooder module.",
@@ -49,7 +55,7 @@
       "then": {
         "properties": { "id": { "pattern": "^[a-z0-9][a-z0-9-]*$" } },
         "anyOf": [{ "required": ["server"] }, { "required": ["webui"] }],
-        "not": { "required": ["plugin"] }
+        "not": { "anyOf": [{ "required": ["plugin"] }, { "required": ["legacyNames"] }] }
       }
     },
     {
